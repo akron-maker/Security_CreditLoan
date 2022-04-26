@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>wanxinp2p</artifactId>
-        <groupId>cn.itcast.wanxinp2p</groupId>
+        <artifactId>CreditLoan</artifactId>
+        <groupId>com.akron.CreditLoan</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>wanxinp2p-account-service</artifactId>
+    <artifactId>CreditLoan-account-service</artifactId>
 
     <properties>
         <java.version>1.8</java.version>
@@ -15,8 +15,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>cn.itcast.wanxinp2p</groupId>
-            <artifactId>wanxinp2p-api</artifactId>
+            <groupId>com.akron.CreditLoan</groupId>
+            <artifactId>CreditLoan-api</artifactId>
             <version>${project.version}</version>
         </dependency>
 
