@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public class AuthFilter extends ZuulFilter {
+public class AuthFilter extends ZuulFilter {//转发明文令牌给各微服务
     @Override
     public boolean shouldFilter() {
         return true;

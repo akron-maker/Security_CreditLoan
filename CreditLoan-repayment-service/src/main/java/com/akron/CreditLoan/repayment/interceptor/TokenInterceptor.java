@@ -14,9 +14,6 @@ import javax.servlet.http.HttpServletResponse;
  * <P>
  * Token 拦截处理
  * </p>
- *
- * @author zhupeiyuan
- * @since 2019-05-09
  */
 public class TokenInterceptor implements HandlerInterceptor {
 

@@ -64,20 +64,20 @@ public class AuthorizationServer extends
 		return NoOpPasswordEncoder.getInstance();
 	}
 
-    @Bean
+    @Bean//设置数据源，从数据库uaa拿到authorizationCode
     public ClientDetailsService clientDetailsService(DataSource dataSource) {
 		ClientDetailsService clientDetailsService = new CustomJdbcClientDetailsService(dataSource);
 		((CustomJdbcClientDetailsService) clientDetailsService).setPasswordEncoder(passwordEncoder());
         return clientDetailsService;
     }
     
-    @Bean
+    @Bean//令牌服务
    	public AuthorizationServerTokenServices tokenService() {
        	DefaultTokenServices service=new DefaultTokenServices();
-       	service.setClientDetailsService(clientDetailsService);
-       	service.setSupportRefreshToken(true);
-   		service.setTokenStore(tokenStore);
-
+       	service.setClientDetailsService(clientDetailsService);//客户端信息服务
+       	service.setSupportRefreshToken(true);//是否刷新令牌
+   		service.setTokenStore(tokenStore);//令牌存储策略
+		//令牌增强，采用JWT
 		TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
 		tokenEnhancerChain.setTokenEnhancers(Arrays.asList(tokenEnhancer(), accessTokenConverter));
    		service.setTokenEnhancer(tokenEnhancerChain);
@@ -93,7 +93,7 @@ public class AuthorizationServer extends
         return new JdbcAuthorizationCodeServices(dataSource);
     }
     
-    @Override
+    @Override//1.客户端详情配置，谁来申请令牌
 	public void configure(ClientDetailsServiceConfigurer clients)
 			throws Exception {
 		 clients.withClientDetails(clientDetailsService);
@@ -117,13 +117,13 @@ public class AuthorizationServer extends
         return userApprovalHandler;
     }
 
-	@Override
+	@Override//2、令牌访问端点和令牌管理服务,url
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
-		endpoints.authenticationManager(authenticationManager)
+		endpoints.authenticationManager(authenticationManager)//密码模式需要
 				//.userDetailsService(userDetailsService)// 若无，refresh_token会有UserDetailsService	 is required错误
-				.authorizationCodeServices(authorizationCodeServices)
+				.authorizationCodeServices(authorizationCodeServices)//授权码模式需要
 				.userApprovalHandler(userApprovalHandler())
-				.tokenServices(tokenService())
+				.tokenServices(tokenService())//令牌管理服务
 			    .pathMapping("/oauth/confirm_access", "/confirm_access")
 				.pathMapping("/oauth/error", "/oauth_error")
 				.allowedTokenEndpointRequestMethods(HttpMethod.POST)
@@ -132,34 +132,17 @@ public class AuthorizationServer extends
 	
 	@Bean
     public TokenEnhancer tokenEnhancer(){
-        return new TokenEnhancer() {
-            @Override
-            public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
-                /*if (accessToken instanceof DefaultOAuth2AccessToken){
-                	if( authentication.getPrincipal() instanceof UnifiedUserDetails){
-						UnifiedUserDetails unifiedUserDetails =(UnifiedUserDetails) authentication.getPrincipal();
-						DefaultOAuth2AccessToken token= (DefaultOAuth2AccessToken) accessToken;
-						Map<String, Object> additionalInformation = new LinkedHashMap<String, Object>();
-						additionalInformation.put("mobile",unifiedUserDetails.getMobile());
-						additionalInformation.put("tenant_id",unifiedUserDetails.getTenantId());
-						additionalInformation.put("department_id",unifiedUserDetails.getDepartmentId());
-						additionalInformation.put("user_authorities",unifiedUserDetails.getUserAuthorities());
-						token.setAdditionalInformation(additionalInformation);
-
-					}
-
-                }*/
-                DefaultOAuth2AccessToken token= (DefaultOAuth2AccessToken) accessToken;
-                Map<String, Object> additionalInformation = new LinkedHashMap<String, Object>();
-                additionalInformation.put("code",0);
-                additionalInformation.put("msg","success");
-                token.setAdditionalInformation(additionalInformation);
-                return accessToken;
-            }
-        };
+        return (accessToken, authentication) -> {
+			DefaultOAuth2AccessToken token= (DefaultOAuth2AccessToken) accessToken;
+			Map<String, Object> additionalInformation = new LinkedHashMap<>();
+			additionalInformation.put("code",0);
+			additionalInformation.put("msg","success");
+			token.setAdditionalInformation(additionalInformation);
+			return accessToken;
+		};
     }
 
-	@Override
+	@Override//3、令牌访问端点的安全策略
 	public void configure(AuthorizationServerSecurityConfigurer security)
 			throws Exception {
 		security

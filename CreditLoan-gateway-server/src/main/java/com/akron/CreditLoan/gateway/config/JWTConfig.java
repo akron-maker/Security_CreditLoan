@@ -9,7 +9,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @Configuration
 public class JWTConfig {
 
-   private String SIGNING_KEY = "wanxin123";
+   private String SIGNING_KEY = "credit";
 
     @Bean
     public TokenStore tokenStore() {

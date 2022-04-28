@@ -29,12 +29,12 @@ public class UUAController {
         return "login";
     }
 
-    @RequestMapping("/confirm_access")
+    @RequestMapping("/confirm_access")//用户确认授权提交端点
     public String confirmAccess() {
         return "/oauth_approval";
     }
     
-    @RequestMapping("/oauth_error")
+    @RequestMapping("/oauth_error")//授权服务错误信息端点
     public String oauthError() {
         return "/oauth_error";
     }
@@ -47,7 +47,7 @@ public class UUAController {
     @Autowired
     private AccessTokenConverter accessTokenConverter;
 
-    @RequestMapping(value = "/oauth/check_token", method = RequestMethod.POST)
+    @RequestMapping(value = "/oauth/check_token", method = RequestMethod.POST)//资源服务访问的令牌解析端点
     @ResponseBody
     public Map<String, ?> checkToken(@RequestParam("token") String value) {
         DefaultTokenServices tokenServices = (DefaultTokenServices) tokenService;

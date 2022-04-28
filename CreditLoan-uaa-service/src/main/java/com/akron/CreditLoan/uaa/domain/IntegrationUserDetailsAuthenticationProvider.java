@@ -21,6 +21,7 @@ public class IntegrationUserDetailsAuthenticationProvider extends AbstractUserDe
         this.authenticationHandler = authenticationHandler;
     }
 
+    @Override
     @SuppressWarnings("deprecation")
     protected void additionalAuthenticationChecks(UserDetails userDetails,
                                                   UsernamePasswordAuthenticationToken authentication)
@@ -29,6 +30,7 @@ public class IntegrationUserDetailsAuthenticationProvider extends AbstractUserDe
     }
 
 
+    @Override
     protected final UserDetails retrieveUser(String username,
                                              UsernamePasswordAuthenticationToken authentication)
             throws AuthenticationException {

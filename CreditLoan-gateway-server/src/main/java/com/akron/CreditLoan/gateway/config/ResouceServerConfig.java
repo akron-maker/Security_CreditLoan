@@ -13,7 +13,7 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 @Configuration
 public class ResouceServerConfig {
 
-    public static final String RESOURCE_ID = "wanxin-resource";
+    public static final String RESOURCE_ID = "creditloan";
 
     private AuthenticationEntryPoint point = new RestOAuth2AuthExceptionEntryPoint();
 
