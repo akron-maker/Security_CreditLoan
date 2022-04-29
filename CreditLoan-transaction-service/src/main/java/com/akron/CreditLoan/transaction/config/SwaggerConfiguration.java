@@ -24,7 +24,7 @@ public class SwaggerConfiguration {
 				.select()
 				// 要扫描的API(Controller)基础包
 				.apis(RequestHandlerSelectors
-						.basePackage("cn.itcast.wanxinp2p.transaction"))
+						.basePackage("com.akron.CreditLoan.transaction"))
 				.paths(PathSelectors.any()).build();
 	}
 

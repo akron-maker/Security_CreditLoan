@@ -19,10 +19,10 @@ public class ElasticJobConfig {
     @Autowired
     ZookeeperRegistryCenter registryCenter;
 
-    @Value("${p2p.job.count}")
+    @Value("${job.count}")
     private int shardingCount;
 
-    @Value("${p2p.job.cron}")
+    @Value("${job.cron}")
     private String cron;
 
     /**

@@ -8,9 +8,6 @@ import java.math.BigDecimal;
  * <P>
  * 放款明细请求信息
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019/5/21
  */
 @Data
 public class LoanDetailRequest {

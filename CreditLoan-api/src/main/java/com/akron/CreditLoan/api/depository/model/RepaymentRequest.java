@@ -11,9 +11,6 @@ import java.util.List;
  * <P>
  * 还款信息
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019/5/26
  */
 @Data
 @ApiModel(value = "RepaymentRequest", description = "还款请求信息")

@@ -4,9 +4,6 @@ package com.akron.CreditLoan.common.domain;
  * <P>
  * 标的状态码枚举类
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019/5/16
  */
 public enum ProjectCode {
 

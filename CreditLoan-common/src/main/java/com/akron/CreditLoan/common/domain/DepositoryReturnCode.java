@@ -4,9 +4,6 @@ package com.akron.CreditLoan.common.domain;
  * <P>
  * 存管系统返回状态码
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019/5/17
  */
 public enum DepositoryReturnCode {
     /**

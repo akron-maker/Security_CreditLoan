@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 
 /**
- * okHttp3请求工具类
+ * okHttp3请求工具类，向银行存管发请求
  */
 @Slf4j
 @Service

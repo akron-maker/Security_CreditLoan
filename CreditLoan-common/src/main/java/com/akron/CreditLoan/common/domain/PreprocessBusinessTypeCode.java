@@ -4,9 +4,6 @@ package com.akron.CreditLoan.common.domain;
  * <P>
  * 预处理业务类型状态码
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019/5/20
  */
 public enum PreprocessBusinessTypeCode {
     /**

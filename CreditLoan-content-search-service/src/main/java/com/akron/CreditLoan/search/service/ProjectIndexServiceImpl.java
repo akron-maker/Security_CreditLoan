@@ -29,7 +29,7 @@ public class ProjectIndexServiceImpl implements ProjectIndexService{
     @Autowired
     private RestHighLevelClient restHighLevelClient;
 
-    @Value("${wanxinp2p.es.index}")
+    @Value("${es.index}")
     private String projectIndex;
 
     @Override

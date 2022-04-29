@@ -57,7 +57,7 @@ public class DepositoryNotifyVerificationInterceptor implements HandlerIntercept
 	 * @return
 	 */
 	private boolean verifySignature(String signature, String reqData) {
-		//获取P2P平台公钥
+		//获取平台公钥
 		String p2pPublicKey = configService.getDepositoryPublicKey();
 		if (StringUtils.isBlank(p2pPublicKey)) {
 			return false;

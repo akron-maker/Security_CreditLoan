@@ -10,9 +10,6 @@ import java.math.BigDecimal;
  * <P>
  * 还款明细请求信息
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019/5/26
  */
 @Data
 @ApiModel(value = "RepaymentDetailRequest", description = "还款明细请求信息")

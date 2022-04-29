@@ -4,9 +4,6 @@ package com.akron.CreditLoan.common.domain;
  * <P>
  * 还款方式 编码
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019/5/22
  */
 public enum RepaymentWayCode {
     /**

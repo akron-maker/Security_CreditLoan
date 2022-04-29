@@ -6,9 +6,6 @@ import lombok.Data;
  * <P>
  * 当前登录用户
  * </p>
- *
- * @author zhupeiyuan
- * @since 2019-05-09
  */
 @Data
 public class LoginUser {

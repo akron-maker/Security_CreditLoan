@@ -12,9 +12,6 @@ import java.net.URLEncoder;
  * <P>
  * 修改标的状态DTO
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019/5/24
  */
 @Data
 public class ModifyProjectStatusDTO {

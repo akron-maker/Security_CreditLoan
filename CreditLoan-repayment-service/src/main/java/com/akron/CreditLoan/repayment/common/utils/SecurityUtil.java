@@ -10,9 +10,6 @@ public class SecurityUtil {
 
 	/**
 	 * 获取当前登录用户
-	 *
-	 * @author zhupeiyuan
-	 * @date 2019-05-14
 	 */
 	public static LoginUser getUser() {
 		ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder

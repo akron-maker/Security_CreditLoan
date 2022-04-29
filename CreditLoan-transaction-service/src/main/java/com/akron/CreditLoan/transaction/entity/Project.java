@@ -14,9 +14,6 @@ import java.time.LocalDateTime;
  * <p>
  * 标的信息表
  * </p>
- *
- * @author dev
- * @since 2019-05-10
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

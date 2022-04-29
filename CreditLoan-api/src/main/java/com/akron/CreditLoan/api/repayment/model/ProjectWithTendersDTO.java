@@ -11,9 +11,6 @@ import java.util.List;
  * <P>
  * 标的还款信息
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019/5/22
  */
 @Data
 public class ProjectWithTendersDTO {

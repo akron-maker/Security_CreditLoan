@@ -13,9 +13,6 @@ import java.time.LocalDateTime;
  * <p>
  * 借款人还款计划
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019-05-22
  */
 @Data
 @TableName("repayment_plan")

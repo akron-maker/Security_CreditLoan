@@ -13,9 +13,6 @@ import java.time.LocalDateTime;
  * <P>
  * 投标信息预览
  * </p>
- *
- * @author zhupeiyuan
- * @since 2019-06-25
  */
 @Data
 @ApiModel(value = "TenderOverviewDTO", description = "投标信息预览")

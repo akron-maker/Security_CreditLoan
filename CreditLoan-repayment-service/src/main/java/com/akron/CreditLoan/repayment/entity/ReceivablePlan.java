@@ -12,9 +12,6 @@ import java.time.LocalDateTime;
  * <p>
  * 投资人应收明细
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019-05-22
  */
 @Data
 public class ReceivablePlan implements Serializable {

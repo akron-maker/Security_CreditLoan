@@ -12,9 +12,6 @@ import java.io.Serializable;
  * <p>
  * 用户绑定银行卡信息
  * </p>
- *
- * @author zhupeiyuan
- * @since 2019-05-07
  */
 @Data
 @TableName("bank_card")

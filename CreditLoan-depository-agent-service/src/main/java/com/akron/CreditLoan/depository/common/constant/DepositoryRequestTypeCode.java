@@ -4,9 +4,6 @@ package com.akron.CreditLoan.depository.common.constant;
  * <P>
  * 银行存管系统请求类型枚举
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019/5/22
  */
 public enum DepositoryRequestTypeCode {
     /**

@@ -13,9 +13,6 @@ import java.util.Map;
  * 而利息越来越少，借款人起初还款压力较大，但是随时间的推移每月还款数也越来越少。
  * 公式：每月偿还本金=(贷款本金÷还款月数)+(贷款本金-已归还本金累计额)×月利率
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019/5/22
  */
 @Data
 public class EqualPrincipalRepayment {

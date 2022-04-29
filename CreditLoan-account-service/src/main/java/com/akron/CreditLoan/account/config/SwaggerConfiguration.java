@@ -23,15 +23,15 @@ public class SwaggerConfiguration {
 				.apiInfo(buildApiInfo())
 				.select()
 				// 要扫描的API(Controller)基础包
-				.apis(RequestHandlerSelectors.basePackage("cn.itcast.wanxinp2p"))
+				.apis(RequestHandlerSelectors.basePackage("com.akronCreditLoan"))
 				.paths(PathSelectors.any())
 				.build();
 	}
 
 	private ApiInfo buildApiInfo() {
-		Contact contact = new Contact("黑马程序员","","");
+		Contact contact = new Contact("安全信贷","","");
 		return new ApiInfoBuilder()
-				.title("万信金融P2P平台-用户服务API文档")
+				.title("安全信贷-用户服务API文档")
 				.description("包含统一账户服务api")
 				.contact(contact)
 				.version("1.0.0").build();

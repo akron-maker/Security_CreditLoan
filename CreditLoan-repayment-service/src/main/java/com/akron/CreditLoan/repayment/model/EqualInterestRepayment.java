@@ -12,9 +12,6 @@ import java.util.Map;
  * 把按揭贷款的本金总额与利息总额相加，然后平均分摊到还款期限的每个月中。作为还款人，
  * 每个月还给银行固定金额，但每月还款额中的本金比重逐月递增、利息比重逐月递减。
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019/5/22
  */
 @Data
 public class EqualInterestRepayment {

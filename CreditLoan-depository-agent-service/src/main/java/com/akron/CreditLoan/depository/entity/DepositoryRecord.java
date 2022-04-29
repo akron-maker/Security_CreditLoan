@@ -13,9 +13,6 @@ import java.time.LocalDateTime;
  * <p>
  * 存管交易记录表
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019-05-17
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

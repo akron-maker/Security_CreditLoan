@@ -6,9 +6,6 @@ import java.math.BigDecimal;
  * <P>
  * 投资人预期收益计算工具
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019/6/11
  */
 public class IncomeCalcUtil {
 

@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ZKRegistryCenterConfig {
 
-    @Value("${p2p.zookeeper.connString}")
+    @Value("${zookeeper.connString}")
     private String ZOOKEEPER_CONNECTION_STRING ;
 
-    @Value("${p2p.job.namespace}")
+    @Value("${job.namespace}")
     private String JOB_NAMESPACE;
 
     //创建注册中心

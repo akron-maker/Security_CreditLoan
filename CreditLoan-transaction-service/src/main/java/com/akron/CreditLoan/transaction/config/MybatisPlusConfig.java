@@ -10,12 +10,10 @@ import org.springframework.context.annotation.Configuration;
  * <P>
  * Mybatis-Plus 配置
  * </p>
- *
- * @author zhupeiyuan
- * @since 2019-05-10
+
  */
 @Configuration
-@MapperScan("cn.itcast.wanxinp2p.**.mapper")
+@MapperScan("com.akron.CreditLoan.**.mapper")
 public class MybatisPlusConfig {
 
 	/**

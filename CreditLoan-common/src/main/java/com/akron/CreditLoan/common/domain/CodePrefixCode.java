@@ -5,9 +5,6 @@ package com.akron.CreditLoan.common.domain;
  * 标的编码, 请求流水号等业务标识
  * 可根据业务进行增加
  * </p>
- *
- * @author wuzhao@itcast.cn
- * @since 2019/5/16
  */
 public enum CodePrefixCode {
 
