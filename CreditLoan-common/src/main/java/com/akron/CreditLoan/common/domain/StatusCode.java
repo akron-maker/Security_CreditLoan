@@ -5,15 +5,15 @@ public enum StatusCode {
     /**
      * 发/同布失败
      */
-    STATUS_FAIL(2, "发/同布失败"),
+    STATUS_FAIL(2, "发/同步失败"),
     /**
      * 已发/同布
      */
-    STATUS_IN(1, "已发/同布"),
+    STATUS_IN(1, "已发/同步"),
     /**
      * 未发/同布
      */
-    STATUS_OUT(0,"未发/同布");
+    STATUS_OUT(0,"未发/同步");
 
     private Integer code;
     private String desc;

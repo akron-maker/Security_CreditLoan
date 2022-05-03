@@ -56,7 +56,7 @@ public class ConfigService {
      * @return
      */
     public BigDecimal getBorrowerAnnualRate() {
-        return new BigDecimal(config.getProperty("borrower.annual.rate", null));
+        return new BigDecimal(config.getProperty("borrower.annual.rate", "0.15"));
     }
 
     /**

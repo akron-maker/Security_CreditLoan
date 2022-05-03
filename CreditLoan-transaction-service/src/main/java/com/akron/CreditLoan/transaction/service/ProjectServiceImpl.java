@@ -67,7 +67,9 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project>
 
     @Override
     public ProjectDTO createProject(ProjectDTO projectDTO) {
-        RestResponse<ConsumerDTO> restResponse = consumerApiAgent.getCurrConsumer(SecurityUtil.getUser().getMobile());
+        //TODO:getCurrConsumer
+//       RestResponse<ConsumerDTO> restResponse =consumerApiAgent.getCurrConsumer(SecurityUtil.getUser().getMobile());
+        RestResponse<ConsumerDTO> restResponse = consumerApiAgent.getCurrConsumer("13060225441");
         projectDTO.setConsumerId(restResponse.getResult().getId());
         projectDTO.setUserNo(restResponse.getResult().getUserNo());
         // 生成标的编码
@@ -399,8 +401,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project>
         //第二阶段：2. 放款
         RestResponse<String> restResponse=depositoryAgentApiAgent.confirmLoan(loanRequest);
         if(restResponse.getResult().equals(DepositoryReturnCode.RETURN_CODE_00000.getCode())){
-            updateTenderStatusAlreadyLoan(tenderList);
-            //第三阶段3. 修改状态
+            updateTenderStatusAlreadyLoan(tenderList);//修改投标转态为已放款
+            //第三阶段3. 修改标的状态
             //创建请求参数对象
             ModifyProjectStatusDTO modifyProjectStatusDTO=new ModifyProjectStatusDTO();
             modifyProjectStatusDTO.setId(project.getId());
