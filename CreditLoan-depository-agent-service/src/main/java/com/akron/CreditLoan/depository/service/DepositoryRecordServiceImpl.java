@@ -122,6 +122,7 @@ public class DepositoryRecordServiceImpl extends ServiceImpl<DepositoryRecordMap
 
     @Override
     public DepositoryResponseDTO<DepositoryBaseResponse> confirmLoan(LoanRequest loanRequest) {
+        //TODO:放款确认对接银行存管
         DepositoryRecord depositoryRecord=new DepositoryRecord(loanRequest.getRequestNo(),DepositoryRequestTypeCode.FULL_LOAN.getCode(),"LoanRequest",loanRequest.getId());
         //幂等性实现
         DepositoryResponseDTO<DepositoryBaseResponse> responseDTO=handleIdempotent(depositoryRecord);
@@ -190,6 +191,7 @@ public class DepositoryRecordServiceImpl extends ServiceImpl<DepositoryRecordMap
 
 
     private DepositoryResponseDTO<DepositoryBaseResponse> sendHttpGet(
+            //TODO:向银行存管发请求，模拟处理
             String serviceName, String url, String reqData,
             DepositoryRecord depositoryRecord){
         // 银行存管系统接收的4大参数: serviceName, platformNo, reqData, signature

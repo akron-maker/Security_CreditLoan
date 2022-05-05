@@ -32,7 +32,7 @@ public class ConfigService {
     }
 
     /**
-     * 万信P2P系统公钥
+     * 信贷系统公钥
      * @return
      */
     public String getP2pPublicKey() {
@@ -40,7 +40,7 @@ public class ConfigService {
     }
 
     /**
-     * 万信P2P系统 标识
+     * 信贷系统 标识
      * @return
      */
     public String getP2pCode() {
@@ -48,7 +48,7 @@ public class ConfigService {
     }
 
     /**
-     * 万信P2P系统私钥
+     * 信贷系统私钥
      * @return
      */
     public String getP2pPrivateKey() {

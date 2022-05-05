@@ -18,7 +18,7 @@ import java.util.Map;
 
 @Slf4j
 public class IntegrationUserDetailsAuthenticationHandler {
-
+	//TODO:统一认证处理
 	/**
 	 * 认证处理
 	 * @param domain 用户域 ，如b端用户、c端用户等

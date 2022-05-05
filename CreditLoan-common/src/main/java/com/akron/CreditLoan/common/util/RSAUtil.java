@@ -1,5 +1,7 @@
 package com.akron.CreditLoan.common.util;
 
+import org.apache.commons.lang.StringUtils;
+
 import javax.crypto.Cipher;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -18,7 +20,7 @@ public class RSAUtil {
 	/**
 	 * RSA签名
 	 * @param content 待签名数据
-	 * @param privateKey 商户私钥
+	 * @param privateKey 平台私钥
 	 * @param input_charset 编码格式
 	 * @return 签名值
 	 */
@@ -54,7 +56,8 @@ public class RSAUtil {
 	public static boolean verify(String content, String sign, String public_key, String input_charset) {
 		try {
 			KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-			byte[] encodedKey = decoder.decode(public_key);
+			String deleteWhitespace = StringUtils.deleteWhitespace(public_key);
+			byte[] encodedKey = decoder.decode(deleteWhitespace);
 			PublicKey pubKey = keyFactory.generatePublic(new X509EncodedKeySpec(encodedKey));
 
 

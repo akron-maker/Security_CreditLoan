@@ -43,6 +43,7 @@ public class PasswordUtil {
 	 * 校验密码是否正确
 	 */
 	public static boolean verify(String password, String md5) {
+		//TODO:存量数据密码摘要与登录对比
 		char[] cs1 = new char[32];
 		char[] cs2 = new char[16];
 		for (int i = 0; i < 48; i += 3) {
@@ -51,7 +52,8 @@ public class PasswordUtil {
 			cs2[i / 3] = md5.charAt(i + 1);
 		}
 		String salt = new String(cs2);
-		return md5Hex(password + salt).equals(new String(cs1));
+		boolean verifyResult = md5Hex(password + salt).equals(new String(cs1));
+		return verifyResult;
 	}
 
 	/**

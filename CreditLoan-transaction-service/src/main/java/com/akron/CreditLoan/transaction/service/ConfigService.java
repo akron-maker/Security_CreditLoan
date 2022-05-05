@@ -29,7 +29,7 @@ public class ConfigService {
      * 借款人佣金
      */
     public BigDecimal getCommissionBorrowerAnnualRate() {
-        return new BigDecimal(config.getProperty("commission.borrower.annual.rate", null));
+        return new BigDecimal(config.getProperty("commission.borrower.annual.rate", "0.12"));
     }
 
 
@@ -37,7 +37,7 @@ public class ConfigService {
      * 投资人佣金
      */
     public BigDecimal getCommissionInvestorAnnualRate() {
-        return new BigDecimal(config.getProperty("commission.investor.annual.rate", null));
+        return new BigDecimal(config.getProperty("commission.investor.annual.rate", "0.10"));
     }
 
 
@@ -60,7 +60,7 @@ public class ConfigService {
     }
 
     /**
-     * 年化利率(投资人) = 借款人利率 - 平台佣金( 借款人佣金  +  投资人佣金 )
+     * !!!!年化利率(投资人) = 借款人利率0.15 - 平台佣金( 借款人佣金  +  投资人佣金 )!!!!!
      *
      * @return
      */

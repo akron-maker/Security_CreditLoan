@@ -127,8 +127,13 @@ public class TransactionController implements TransactionApi {
                     dataType = "string", paramType = "query")
     })
     @PutMapping("/m/loans/{id}/projectStatus/{approveStatus}")
-    public RestResponse<String> loansApprovalStatus(@PathVariable("id") Long id, @PathVariable("approveStatus") String approveStatus, String commission) {
+    public RestResponse loansApprovalStatus(@PathVariable("id") Long id, @PathVariable("approveStatus") String approveStatus, String commission) {
         String result=projectService.loansApprovalStatus(id,approveStatus,commission);
+//        RestResponse<Object> response = new RestResponse<>();
+//        response.setCode(0);
+//        response.setMsg("success");
+//        response.setResult("审核成功");
         return RestResponse.success(result);
+//        return response;
     }
 }

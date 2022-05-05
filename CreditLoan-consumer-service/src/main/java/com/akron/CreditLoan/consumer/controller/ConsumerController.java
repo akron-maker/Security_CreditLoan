@@ -110,7 +110,6 @@ public class ConsumerController implements ConsumerAPI {
      @param userNo 用户编码
      @return
      */
-    //不用大家编码实现，直接复制使用即可
     private RestResponse<BalanceDetailsDTO> getBalanceFromDepository(String userNo)
     {
         String url = depositoryURL + "/balance-details/" + userNo;

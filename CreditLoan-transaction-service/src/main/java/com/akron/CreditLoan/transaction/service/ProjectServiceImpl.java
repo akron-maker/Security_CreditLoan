@@ -62,12 +62,14 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project>
     private TenderMapper tenderMapper;
 
     @Autowired
+    private ProjectMapper projectMapper;
+
+    @Autowired
     private P2pTransactionProducer p2pTransactionProducer;
 
 
     @Override
     public ProjectDTO createProject(ProjectDTO projectDTO) {
-        //TODO:getCurrConsumer
 //       RestResponse<ConsumerDTO> restResponse =consumerApiAgent.getCurrConsumer(SecurityUtil.getUser().getMobile());
         RestResponse<ConsumerDTO> restResponse = consumerApiAgent.getCurrConsumer("13060225441");
         projectDTO.setConsumerId(restResponse.getResult().getId());
@@ -388,6 +390,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project>
 
     @Override
     public String loansApprovalStatus(Long id, String approveStatus, String commission) {
+        //TODO:满标放款
         //第一阶段：1. 生成放款明细
         // 标的信息
         Project project=getById(id);
@@ -413,6 +416,9 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project>
             //向存管代理服务发起请求
             RestResponse<String> modifyProjectStatus = depositoryAgentApiAgent.modifyProjectStatus(modifyProjectStatusDTO);
             if(modifyProjectStatus.getResult().equals(DepositoryReturnCode.RETURN_CODE_00000.getCode())){
+                //修改交易中心标的状态
+                project.setProjectStatus(ProjectCode.REPAYING.getCode());
+                projectMapper.updateById(project);
                 //4. 启动还款
                 //准备数据
                 ProjectWithTendersDTO projectWithTendersDTO=new ProjectWithTendersDTO();

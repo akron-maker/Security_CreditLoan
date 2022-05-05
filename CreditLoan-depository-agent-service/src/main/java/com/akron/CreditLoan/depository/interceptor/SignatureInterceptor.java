@@ -10,6 +10,7 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +36,7 @@ public class SignatureInterceptor implements Interceptor {
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        // 拦截请求，获取到该次请求的request
+        //TODO:拦截请求outer的请求
         Request request = chain.request();
         Response response = null;
         Request requestProcess = null;
@@ -50,9 +51,11 @@ public class SignatureInterceptor implements Interceptor {
             final String platformNo = getParam(url, "platformNo");
             //
             String base = url.substring(0, url.indexOf("?") + 1);
-
+            String p2pPrivateKey = configService.getP2pPrivateKey();
+//           // p2pPrivateKey.replace(" ","");
+            String deleteWhitespace = StringUtils.deleteWhitespace(p2pPrivateKey);
             // 进行签名
-            final String sign = RSAUtil.sign(jsonString, configService.getP2pPrivateKey(), INPUT_CHARSET);
+            final String sign = RSAUtil.sign(jsonString, deleteWhitespace, INPUT_CHARSET);
             // 修改请求地址, 并添加签名参数
             url = base + "serviceName=" + URLEncoder.encode(serviceName, INPUT_CHARSET)
                     + "&platformNo=" + URLEncoder.encode(platformNo, INPUT_CHARSET)
@@ -75,7 +78,7 @@ public class SignatureInterceptor implements Interceptor {
             // 进行验签
             if (RSAUtil.verify(respData, signature, configService.getDepositoryPublicKey(), INPUT_CHARSET)) {
                 // 验签成功
-                // 重新构造结果集, 原因是response.body().toString();调用后, body中值会请空
+                // 重新构造结果集, 原因是response.body().toString();调用后, body中值会清空
                 response = response.newBuilder().body(ResponseBody.create(response.body().contentType(), parseObject.toJSONString())).build();
             } else {
                 // 验签失败, 把signature修改为false, 用于业务判断,
