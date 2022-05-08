@@ -107,6 +107,7 @@ public class ClientDefaultAccessTokenConverter implements AccessTokenConverter {
     }
 
     public OAuth2Authentication extractAuthentication(Map<String, ?> map) {
+
         Map<String, String> parameters = new HashMap<String, String>();
         Set<String> scope = extractScope(map);
         Authentication user = userTokenConverter.extractAuthentication(map);

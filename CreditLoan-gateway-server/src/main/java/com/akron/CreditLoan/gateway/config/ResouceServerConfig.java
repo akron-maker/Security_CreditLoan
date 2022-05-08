@@ -33,7 +33,7 @@ public class ResouceServerConfig {
         @Override
         public void configure(ResourceServerSecurityConfigurer resources)
                 throws Exception {
-            resources.tokenStore(tokenStore).resourceId(RESOURCE_ID)
+            resources.tokenStore(tokenStore).resourceId(RESOURCE_ID)//验证令牌
                     .stateless(true);
         }
 
@@ -65,7 +65,7 @@ public class ResouceServerConfig {
         @Override
         public void configure(ResourceServerSecurityConfigurer resources)
                 throws Exception {
-            resources.tokenStore(tokenStore).resourceId(RESOURCE_ID)
+            resources.tokenStore(tokenStore).resourceId(RESOURCE_ID)//验证令牌
                     .stateless(true);
 
             resources.authenticationEntryPoint(point).accessDeniedHandler(handler);

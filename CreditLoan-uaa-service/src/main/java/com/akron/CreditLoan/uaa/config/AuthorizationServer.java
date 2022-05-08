@@ -41,7 +41,7 @@ public class AuthorizationServer extends
 	@Autowired
 	private TokenStore tokenStore;
 
-	@Autowired
+	@Autowired//生成令牌
 	private JwtAccessTokenConverter accessTokenConverter;
 	
 

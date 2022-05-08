@@ -66,7 +66,7 @@ public class RepaymentServiceImpl implements RepaymentService {
 
     @Override
     @Transactional(rollbackFor = BusinessException.class)
-    public String startRepayment(ProjectWithTendersDTO projectWithTendersDTO) {
+    public String startRepayment(ProjectWithTendersDTO projectWithTendersDTO) {//TODO:启动还款
 
         //1.生成借款人还款计划
         //1.1 获取标的信息
@@ -314,7 +314,7 @@ public class RepaymentServiceImpl implements RepaymentService {
     public List<RepaymentPlan> saveRepaymentPlan(ProjectDTO projectDTO,
                                                  EqualInterestRepayment
                                                          fixedRepayment) {
-        List<RepaymentPlan> repaymentPlanList = new ArrayList<>();
+        List<RepaymentPlan> repaymentPlanList = new ArrayList<>();//封装每期的还款计划
         // 获取每期利息
         final Map<Integer, BigDecimal> interestMap =
                 fixedRepayment.getInterestMap();

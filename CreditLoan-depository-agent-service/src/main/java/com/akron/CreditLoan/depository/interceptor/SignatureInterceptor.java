@@ -36,7 +36,7 @@ public class SignatureInterceptor implements Interceptor {
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        //TODO:拦截请求outer的请求
+        //TODO:拦截请求outer的请求，进行签名
         Request request = chain.request();
         Response response = null;
         Request requestProcess = null;
