@@ -144,7 +144,7 @@ public class RepaymentServiceImpl implements RepaymentService {
     }
 
     @Override
-    public void executeRepayment(String date,int shardingCount,int shardingItem) {
+    public void executeRepayment(String date,int shardingCount,int shardingItem) {//TODO:还款
         //查询到期的还款计划
         List<RepaymentPlan> repaymentPlanList=selectDueRepayment(date,shardingCount,shardingItem);
 

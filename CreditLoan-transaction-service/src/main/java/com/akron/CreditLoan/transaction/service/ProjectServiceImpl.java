@@ -69,7 +69,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project>
 
 
     @Override
-    public ProjectDTO createProject(ProjectDTO projectDTO) {
+    public ProjectDTO createProject(ProjectDTO projectDTO) {//TODO:发标
 //       RestResponse<ConsumerDTO> restResponse =consumerApiAgent.getCurrConsumer(SecurityUtil.getUser().getMobile());
         RestResponse<ConsumerDTO> restResponse = consumerApiAgent.getCurrConsumer("13060225441");
         projectDTO.setConsumerId(restResponse.getResult().getId());
@@ -267,7 +267,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project>
     }
 
     @Override
-    public TenderDTO createTender(ProjectInvestDTO projectInvestDTO) {
+    public TenderDTO createTender(ProjectInvestDTO projectInvestDTO) {//TODO:投标
         //1.前置条件判断
         //1.1 判断投标金额是否大于最小投标金额
         BigDecimal amount=new BigDecimal(projectInvestDTO.getAmount());

@@ -75,7 +75,7 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
     }
 
     @Override
-    public AccountDTO login(AccountLoginDTO accountLoginDTO) {
+    public AccountDTO login(AccountLoginDTO accountLoginDTO) {//TODO:登录
         //1.根据用户名和密码进行一次查询
         //2.先根据用户名进行查询，然后再比对密码
         Account account=null;

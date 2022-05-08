@@ -74,7 +74,7 @@ public class ConsumerServiceImpl extends ServiceImpl<ConsumerMapper, Consumer> i
     }
 
     @Override
-    @Hmily(confirmMethod = "confirmRegister",cancelMethod = "cancelRegister")
+    @Hmily(confirmMethod = "confirmRegister",cancelMethod = "cancelRegister")//TODO:注册
     public void register(ConsumerRegisterDTO consumerRegisterDTO) {
         if(checkMobile(consumerRegisterDTO.getMobile())==1){
             throw new BusinessException(ConsumerErrorCode.E_140107);
@@ -99,6 +99,7 @@ public class ConsumerServiceImpl extends ServiceImpl<ConsumerMapper, Consumer> i
     @Override
     @Transactional
     public RestResponse<GatewayRequest> createConsumer(ConsumerRequest consumerRequest) {
+        //TODO:开户
         //1.判断当前用户是否已经开户
         ConsumerDTO consumerDTO=getByMobile(consumerRequest.getMobile());
         if(consumerDTO.getIsBindCard()==1){
