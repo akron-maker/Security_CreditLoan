@@ -23,7 +23,7 @@ public class JWTConfig {
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setSigningKey(SIGNING_KEY); //对称秘钥，资源服务器使用该秘钥来解密
+        converter.setSigningKey(SIGNING_KEY); //对称秘钥，资源服务器使用该秘钥来加密
         ClientDefaultAccessTokenConverter accessTokenConverter = new ClientDefaultAccessTokenConverter();
         accessTokenConverter.setUserTokenConverter(new UnifiedUserAuthenticationConverter());
         converter.setAccessTokenConverter(accessTokenConverter);
