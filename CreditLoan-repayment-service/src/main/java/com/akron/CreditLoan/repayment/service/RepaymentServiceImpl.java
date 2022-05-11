@@ -156,7 +156,6 @@ public class RepaymentServiceImpl implements RepaymentService {
             Boolean proRepaymentResult = preRepayment(repaymentPlan,repaymentDetail.getRequestNo());
 
             if(proRepaymentResult){
-                //未完待续
                 System.out.println("还款预处理成功");
                 String preRequestNo=repaymentDetail.getRequestNo();
                 RepaymentRequest repaymentRequest=generateRepaymentRequest(repaymentPlan,preRequestNo);
